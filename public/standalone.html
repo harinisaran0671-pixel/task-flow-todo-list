@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List | Task Manager</title>
+  <meta name="description" content="A clean, responsive, and modular task management web application built with vanilla HTML5, CSS3, and modern JavaScript.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+
+  <main class="app-container">
+    <div id="todo-app-card" class="todo-card">
+      
+      <!-- Header Section -->
+      <header id="todo-header" class="todo-header">
+        <div class="header-top">
+          <div>
+            <div class="header-title-group">
+              <div class="header-icon-box" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="8" y1="6" x2="21" y2="6"></line>
+                  <line x1="8" y1="12" x2="21" y2="12"></line>
+                  <line x1="8" y1="18" x2="21" y2="18"></line>
+                  <line x1="3" y1="6" x2="3.01" y2="6"></line>
+                  <line x1="3" y1="12" x2="3.01" y2="12"></line>
+                  <line x1="3" y1="18" x2="3.01" y2="18"></line>
+                </svg>
+              </div>
+              <h1 id="todo-app-title" class="app-title">To-Do List</h1>
+            </div>
+            <p id="current-date" class="current-date">Loading date...</p>
+          </div>
+
+          <!-- Progress Pill -->
+          <div id="progress-pill" class="progress-pill" style="display: none;">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+              <polyline points="22 4 12 14.01 9 11.01"></polyline>
+            </svg>
+            <span id="progress-count">0/0 Done</span>
+            <span id="progress-percent">(0%)</span>
+          </div>
+        </div>
+
+        <!-- Animated Progress Bar -->
+        <div id="progress-track" class="progress-track" style="display: none;">
+          <div id="progress-fill" class="progress-fill"></div>
+        </div>
+      </header>
+
+      <!-- Task Input Form -->
+      <form id="todo-form" class="todo-form" autocomplete="off">
+        <div class="input-wrapper">
+          <input
+            id="todo-input"
+            class="todo-input"
+            type="text"
+            placeholder="Add a new task..."
+            aria-label="New task title"
+            required
+          >
+        </div>
+        <button id="btn-add" class="btn-add" type="submit" disabled aria-label="Add task">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>Add</span>
+        </button>
+      </form>
+
+      <!-- Task List Container -->
+      <ul id="todo-list" class="todo-list" aria-live="polite"></ul>
+
+      <!-- Contextual Empty State -->
+      <div id="empty-state" class="empty-state" style="display: none;"></div>
+
+      <!-- Footer / Filter Bar -->
+      <footer id="todo-footer" class="todo-footer" style="display: none;">
+        <div id="tasks-remaining" class="tasks-remaining">0 tasks remaining</div>
+
+        <div id="filter-group" class="filter-group" role="tablist" aria-label="Task filters">
+          <button id="filter-all-btn" class="btn-filter active" data-filter="all" type="button" role="tab" aria-selected="true">
+            <span>All</span>
+            <span id="count-all" class="filter-badge">0</span>
+          </button>
+          <button id="filter-active-btn" class="btn-filter" data-filter="active" type="button" role="tab" aria-selected="false">
+            <span>Active</span>
+            <span id="count-active" class="filter-badge">0</span>
+          </button>
+          <button id="filter-completed-btn" class="btn-filter" data-filter="completed" type="button" role="tab" aria-selected="false">
+            <span>Completed</span>
+            <span id="count-completed" class="filter-badge">0</span>
+          </button>
+        </div>
+
+        <button id="btn-clear-completed" class="btn-clear-completed" type="button" style="display: none;">
+          Clear completed
+        </button>
+      </footer>
+
+    </div>
+
+    <p class="app-tip">
+      Tip: Double-click any task to edit its title. Press Enter to save or Escape to cancel.
+    </p>
+  </main>
+
+  <script src="/script.js"></script>
+</body>
+</html>

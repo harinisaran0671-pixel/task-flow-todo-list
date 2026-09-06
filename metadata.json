@@ -1,0 +1,6 @@
+{
+  "name": "To-Do List",
+  "description": "A clean and modular task management application to add, complete, and organize daily tasks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
